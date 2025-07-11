@@ -1,0 +1,32 @@
+README.md:
+  path: README.md
+  title: Documentación del Proyecto
+  type: file
+avanzado:
+  children:
+    04-avanzado.md:
+      path: avanzado/04-avanzado.md
+      title: Temas Avanzados
+      type: file
+  type: directory
+instalacion:
+  children:
+    02-instalacion.md:
+      path: instalacion/02-instalacion.md
+      title: Guía de Instalación
+      type: file
+  type: directory
+intro:
+  children:
+    01-introduccion.md:
+      path: intro/01-introduccion.md
+      title: Introducción al Proyecto
+      type: file
+  type: directory
+uso:
+  children:
+    03-uso.md:
+      path: uso/03-uso.md
+      title: Guía de Uso
+      type: file
+  type: directory

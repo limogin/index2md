@@ -1,0 +1,31 @@
+docs_dir: test-docs
+edit_uri: edit/main/docs/
+nav:
+- Documentación del Proyecto: README.md
+- Índice de Documentación: test-index.md
+- Temas Avanzados y Desarrollo:
+  - Temas Avanzados: avanzado/04-avanzado.md
+  - Temas Avanzados y Desarrollo: avanzado/README.md
+- Guía de Instalación y Configuración:
+  - Guía de Instalación: instalacion/02-instalacion.md
+  - Guía de Instalación y Configuración: instalacion/README.md
+- Introducción al Proyecto:
+  - Introducción al Proyecto: intro/01-introduccion.md
+  - Introducción al Proyecto: intro/README.md
+- Guía de Uso y Referencia:
+  - Guía de Uso: uso/03-uso.md
+  - Guía de Uso y Referencia: uso/README.md
+repo_url: https://github.com/yourusername/project
+site_author: index2md
+site_description: Documentación generada automáticamente
+site_dir: site
+site_name: Documentación del Proyecto
+theme:
+  features:
+  - navigation.tabs
+  - navigation.sections
+  - navigation.expand
+  - navigation.top
+  - search.highlight
+  - search.share
+  name: material

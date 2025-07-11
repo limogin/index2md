@@ -1,0 +1,65 @@
+# Makefile generado por index2md
+# Para compilar documentación a PDF y ODT
+
+# Variables
+SOURCE_DIR = test-docs
+BUILD_DIR = build
+INDEX_FILE = test-index.yaml
+PANDOC_INPUT = all_docs.md
+PANDOC = pandoc
+MERMAID_FILTER = mermaid-filter
+
+# Crear directorio de build si no existe
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
+# Concatenar archivos Markdown desde YAML (si es necesario)
+# Concatenar archivos Markdown desde YAML
+all_docs.md:
+	python3 index2md.py -s test-docs --concat-yaml test-index.yaml -o all_docs.md
+# Compilar a PDF
+pdf: $(BUILD_DIR) all_docs.md
+	$(PANDOC) $(PANDOC_INPUT) \
+		--from markdown \
+		--to pdf \
+		--output $(BUILD_DIR)/documentacion.pdf \
+		--filter $(MERMAID_FILTER) \
+		--toc \
+		--number-sections
+
+# Compilar a ODT
+odt: $(BUILD_DIR) all_docs.md
+	$(PANDOC) $(PANDOC_INPUT) \
+		--from markdown \
+		--to odt \
+		--output $(BUILD_DIR)/documentacion.odt \
+		--filter $(MERMAID_FILTER) \
+		--toc
+
+# Compilar todo
+all: pdf odt
+
+# Limpiar archivos generados
+clean:
+	rm -rf $(BUILD_DIR) all_docs.md
+
+# Instalar dependencias (Ubuntu/Debian)
+install-deps:
+	sudo apt-get update
+	sudo apt-get install -y pandoc
+	pip install mermaid-filter
+
+# Instalar dependencias (macOS)
+install-deps-macos:
+	brew install pandoc
+	pip install mermaid-filter
+
+# Ayuda
+help:
+	@echo "Comandos disponibles:"
+	@echo "  make -f Makefile.docs pdf      - Generar PDF"
+	@echo "  make -f Makefile.docs odt      - Generar ODT"
+	@echo "  make -f Makefile.docs all      - Generar PDF y ODT"
+	@echo "  make -f Makefile.docs clean    - Limpiar archivos generados"
+	@echo "  make -f Makefile.docs install-deps - Instalar dependencias (Ubuntu/Debian)"
+	@echo "  make -f Makefile.docs install-deps-macos - Instalar dependencias (macOS)"
