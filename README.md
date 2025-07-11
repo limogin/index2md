@@ -261,7 +261,7 @@ index2md/
 
 ## Licencia
 
-MIT License
+GPL3.0 License
 
 
 
